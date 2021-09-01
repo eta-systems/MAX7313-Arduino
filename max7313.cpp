@@ -115,7 +115,13 @@ void MAX7313::clearInterrupt(void){
 }
 
 uint8_t MAX7313::digitalRead(uint8_t num){
-  return read8(__max7313_get_input_reg(num));
+ // 16 pins total, stored in 2 separate 8 bit registers
+ // the following macro reads the correct one
+ uint8_t all_regs = read8( __max7313_get_input_reg(num) );
+ // convert pin num to bit position in 8 bit register (0->0, 1->1, 2->2, 3->4, 4->8 ... 8->0, 9->1, 10->2, 11->4 ...)
+ num = 1 << (num % 8);
+ all_regs &= num;      // mask with bit position
+ return (uint8_t)(all_regs > 0); // convert and return boolean expression (if bit set)
 }
 
 uint8_t MAX7313::read8(uint8_t addr) {
