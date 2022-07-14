@@ -51,7 +51,7 @@ void MAX7313::pinMode(uint8_t num, uint8_t mode){
   write8(addr, reg);
 }
 
-void digitalWrite(uint8_t num, uint8_t val){
+void MAX7313::digitalWrite(uint8_t num, uint8_t val){
   if(val == HIGH)
     val = 15;
   else
