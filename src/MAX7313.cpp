@@ -44,7 +44,7 @@ void MAX7313::begin() {
   write8(MAX7313_PORTS_CONF_08_15,    0x00);  
   write8(MAX7313_BLINK_PHASE_0_00_07, 0xff);
   write8(MAX7313_BLINK_PHASE_0_08_15, 0xff);
-  write8(MAX7313_CONFIGURATION,       0x00);  
+  write8(MAX7313_CONFIGURATION,       0x01);  // enable blink phase for PWM
   write8(MAX7313_OUT_INT_MA_16,       0xff);
 }
 
