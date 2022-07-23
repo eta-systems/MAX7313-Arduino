@@ -1,13 +1,21 @@
+#######################################
 # Syntax Coloring Map For MAX7313 Library
+#######################################
 
-# Class (KEYWORD1)
-MAX7313  KEYWORD1
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
 
+MAX7313 	KEYWORD1
+
+#######################################
 # Methods and Functions (KEYWORD2)
-enableInterrupt  KEYWORD2
-disableInterrupt KEYWORD2
-clearInterrupt   KEYWORD2
+#######################################
 
+enableInterrupt 	KEYWORD2
+disableInterrupt 	KEYWORD2
+clearInterrupt 	KEYWORD2
+
+#######################################
 # Constants (LITERAL1)
-
-
+#######################################
