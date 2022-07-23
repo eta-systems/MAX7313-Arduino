@@ -44,13 +44,13 @@ void MAX7313::begin() {
   write8(MAX7313_PORTS_CONF_08_15,    0x00);  
   write8(MAX7313_BLINK_PHASE_0_00_07, 0xff);
   write8(MAX7313_BLINK_PHASE_0_08_15, 0xff);
-  write8(MAX7313_CONFIGURATION,       0x01);  // enable blink phase
+  write8(MAX7313_CONFIGURATION,       0x00);  
   write8(MAX7313_OUT_INT_MA_16,       0xff);
 }
 
 void MAX7313::pinMode(uint8_t num, uint8_t mode){
   uint8_t mask = 16, addr = 0;
-  if(mode > 7){
+  if(num > 7){
     mask = 8;
     addr = MAX7313_PORTS_CONF_08_15;
   } else {
