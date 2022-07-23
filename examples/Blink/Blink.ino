@@ -1,28 +1,21 @@
 /*
-Created on Wed Sep 04 11:17:15 2019
+MAX7313 Port Expander blinky example
 
 @author: simon
 
-Copyright (c) 2019 eta systems GmbH. All rights reserved.
+Copyright (c) 2019 eta systems GmbH. MIT License
 
-This Software is distributed WITHOUT ANY WARRANTY; 
-without even the implied warranty of MERCHANTABILITY 
-or FITNESS FOR A PARTICULAR PURPOSE. 
 */
 
 #include <Wire.h>
 #include "MAX7313.h"
 
-#define SDA_PIN 4
-#define SCL_PIN 5
-
-const int16_t ADDR_MASTER = 0x01;
 const int16_t ADDR_EXPANDER  = 0x27;
 
-MAX7313 lamps(ADDR_EXPANDER);
+MAX7313 lamps(ADDR_EXPANDER); // create MAX7313 instance with corresponding I2C address
 
 void setup() {
-  Wire.begin(SDA_PIN, SCL_PIN, ADDR_MASTER);  // initialize I2C interface with corresponding pins
+  Wire.begin();               // initialize I2C interface
   lamps.begin();              // start the port expander library
   lamps.pinMode(1, OUTPUT);   // declare port 1 as OUTPUT
 }
