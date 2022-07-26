@@ -1,5 +1,5 @@
 /*
-MAX7313 Port Expander blinky example
+MAX7313 Port Expander analogWrite (PWM) example
 
 @author: simon
 
@@ -21,9 +21,12 @@ void setup() {
 }
 
 void loop() {
-  lamps.digitalWrite(0, LOW);    // turn off port 0
-  delay(500);
-  lamps.digitalWrite(0, HIGH);   // turn on port 0
-  delay(500);
-
+  for(int i=0; i<16; i++){
+    lamps.analogWrite(0, i);
+    delay(100);
+  }
+  for(int i=0; i<16; i++){
+    lamps.analogWrite(0, 15-i);
+    delay(100);
+  }
 }
