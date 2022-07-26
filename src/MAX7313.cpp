@@ -40,10 +40,12 @@ MAX7313::MAX7313(uint8_t addr, TwoWire *i2c){
 
 void MAX7313::begin() {
   _i2c->begin();
-  write8(MAX7313_PORTS_CONF_00_07,    0x00);  // pinmode: 0 = OUTPUT / 1 = INPUT
-  write8(MAX7313_PORTS_CONF_08_15,    0x00);  
+  write8(MAX7313_PORTS_CONF_00_07,    0xff);  // pinmode: 0 = OUTPUT / 1 = INPUT
+  write8(MAX7313_PORTS_CONF_08_15,    0xff);
   write8(MAX7313_BLINK_PHASE_0_00_07, 0xff);
   write8(MAX7313_BLINK_PHASE_0_08_15, 0xff);
+  write8(MAX7313_BLINK_PHASE_1_00_07, 0xff);
+  write8(MAX7313_BLINK_PHASE_1_08_15, 0xff);
   write8(MAX7313_CONFIGURATION,       0x01);  // enable blink phase for PWM
   write8(MAX7313_OUT_INT_MA_16,       0xff);
 }
